@@ -327,21 +327,14 @@ namespace DATA_STRUCTURES.DYNAMIC_CODING
         }
 
 
-        static int GetFiba(int n)
+        static int FibonnaciOf(int N)
         {
-            int fibLast1 = 0;
-
-            int fibLast2 = 1;
-
-            for (int i = 2; i <= n; i++)
+            if (N < 2)
             {
-                int temp = fibLast1 + fibLast2;
-
-                fibLast1 = fibLast2;
-
-                fibLast2 = temp;
+                return 1;
             }
-            return fibLast2;
+
+            return FibonnaciOf(N - 1) + FibonnaciOf(N - 2);
         }
 
 
