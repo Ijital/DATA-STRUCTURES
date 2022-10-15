@@ -54,6 +54,7 @@
     <Compile Include="DYNAMIC CODING\Dynamic-Coding.cs" />
     <Compile Include="KEY BASED STRUCTURES\MyDictionary.cs" />
     <Compile Include="KEY BASED STRUCTURES\MyHashKey.cs" />
+    <Compile Include="LINKED LIST\MelLinked.cs" />
     <Compile Include="LINKED LIST\MyLinkedList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
