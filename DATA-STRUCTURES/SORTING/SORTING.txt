@@ -1,0 +1,16 @@
+﻿
+SORTING
+
+A sorting algorithm will put items in a list into an order, such as alphabetical or numerical order. For example,
+a list of customer names could be sorted into alphabetical order by surname, or a list of people could be put into
+numerical order by age.Sorting a list of items can take a long time, especially if it is a large list. A computer
+program can be created to do this, making sortinga list of data much easier.There are many types of sorting algorithms. 
+Two of them are bubble sort and bucket sort. We sort data for thesame reason we sort things
+in our house i.e for ease/efficient operation on data in the collection. Such operation include;
+
+Look Up: 
+
+This simple involves check if an given item exists in a collection
+Data Processing: This involves retrieveing and performing some operation on items in a collection
+
+

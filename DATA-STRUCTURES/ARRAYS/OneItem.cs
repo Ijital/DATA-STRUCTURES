@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace DATA_STRUCTURES.ARRAYS
 {
+    /// <summary>
+    /// This class has examples of questions that require find a single item in an array. 
+    /// </summary>
     public class OneItem
     {
 

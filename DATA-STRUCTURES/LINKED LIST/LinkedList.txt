@@ -1,0 +1,30 @@
+﻿LINKED LIST:
+
+A linked list is a data structure that is similar to an array - it stores 
+elements in an ordered sequence. The difference is that the elements are 
+not stored contiguously in memory, but instead, each element has a pointer
+to the next element. Each element in a linked list is a node
+
+We will remember that reference variables do not actually store the data assined 
+to them but in reality they only store a pointer to the location where the data
+is actually stored. This is why when you assign a variable to another variable 
+you are only sharing the memory location to thesame object and any change made 
+in one variable will be global. This idea is used in LinkedList. The first Node 
+Object in a linked list is the immediate reference known by the programe. All other
+items in a linked list are only discovred as we traverse from the head node
+
+
+Node:
+A node is an abstract data type which holds 4 things (c# LinkedListNode<T>).
+1: The data of the Node which can be of a given type; integer, string etc
+2: A Pointer to the next and previous node. (c# provides a doubly linked list) 
+
+
+First:
+The first Node in a LinkedList is the first Node in the collection and its is the one which 
+the application domain has immediate reference. This means your programme cannot access the
+rest of the nodes in a linkedlist if the first node is nulled. 
+
+
+Next: 
+The refers to the Node immediately occuring after a given Node, 

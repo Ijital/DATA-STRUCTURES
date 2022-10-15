@@ -3,49 +3,60 @@ using System.Collections.Generic;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 
 namespace DATA_STRUCTURES.ARRAYS
 {
-    // The Array Data structure has the following time complexity
-    //  ==============================================================
-    //  this[index]..........O(1)
-    //  Add(key, value) .... O(1)
-    //  Remove(key)......... O(N)   
-    //  ==================================================================
-
+    /// <summary>
+    /// This class has examples of questions that require find a pair of (or mutiple pairs of items in an array. 
+    /// </summary>
     public class TwoItems
     {
         public TwoItems()
         {
-            string reversedName = ReverseStringManaually("HANNAH");
-
-
+            string reversedName = Reverse_String_Iteratively("MELVINi");
             Debugger.Break();
         }
 
 
-
-
-        #region TWO ITEMS IN ARRAY THAT EVALUATE TO A KNOWN VALUE
-
-        // Get the reverse of a given string. This involves swaping two items located a mirror positions
-        string ReverseStringManaually(string myString)
+        //  Get the reverse of a given string. This involves matching two items located a mirror positions
+        //  and swaping them. This question can also come in the form like; write a method that takes a string
+        //  and returns true or false indicating wether the string is a Palindrom. This would mean looping 
+        //  and checking that    myString[i] == myString[myString-i-1], once a false is encountered 
+        //  then it is not a palindrome
+        string Reverse_String_Iteratively(string myString)
         {
-            int a = myString.Length - 1;
+            var s = myString.ToArray();
 
-            char[] stringChars = new char[myString.Length];
-
-            foreach (var item in myString)
+            for (int i = 0; i < myString.Length / 2; i++)
             {
-                stringChars[a--] = item;
+                char temp = s[i];
+                s[i] = s[s.Length - 1 - i];
+                s[s.Length - 1 - i] = temp;
             }
 
-            return string.Join("", stringChars);
+            return String.Join(" ", s);
         }
 
+
+
+        // Get the reverse of a given string. This involves swaping two items located a mirror positions.
+        // Using recursion
+        string Reverse_String_Recursively(string myString)
+        {
+            if (myString.Length == 1 || string.IsNullOrWhiteSpace(myString))
+            {
+                return myString;
+            }
+
+            return myString[myString.Length - 1] + Reverse_String_Recursively(myString.Substring(0, myString.Length - 1));
+        }
+
+
         //  Given an int array A, find the two items that sum up to int K.
-        //  Return values
-        static KeyValuePair<int, int> Get_Two_Items_That_Sum_Up_To_K(int[] A, int K)
+        //  Return values. This is appropraite for when the array is not sorted.
+        // Where an array is sorted you may use two pointers. 
+        KeyValuePair<int, int> Get_Two_Items_That_Sum_Up_To_K(int[] A, int K)
         {
             Dictionary<int, int> neededValues = new Dictionary<int, int>();
 
@@ -64,11 +75,12 @@ namespace DATA_STRUCTURES.ARRAYS
             return new KeyValuePair<int, int>();
         }
 
+
         //  Q:  Given an integer arrays A[] find two items in the array which produce the highest sum
         //  Solution:-
         //  The simple strategy here is to find the highest item and the second 
         //  highest item in the array as the two would certainly produce the highest sum
-        static int[] Two_Values_That_Produce_Highest_Sum(int[] A)
+        int[] Two_Values_That_Produce_Highest_Sum(int[] A)
         {
             int highest = A[0];
             int secondHighest = A[0];
@@ -98,7 +110,7 @@ namespace DATA_STRUCTURES.ARRAYS
         //  Solution:-
         //  As the previous question, the simple strategy here is to find the highest value in each of the two arrays.
         //  since there is no way the two highest values can add up to produce any lesser values         
-        static int[] Two_Values_Two_Arrays_That_Produce_Highest_Sum(int[] A, int[] B)
+        int[] Two_Values_From_Two_Arrays_That_Produce_Highest_Sum(int[] A, int[] B)
         {
             int highestA = A[0];
             int highestB = B[0];
@@ -122,11 +134,10 @@ namespace DATA_STRUCTURES.ARRAYS
         }
 
 
-
         // Q:   Check if there exist two elements in an array whose sum is equal to the sum of rest of the array
         //      It two parts of something are equal to eachother.
         //      
-        static int[] Two_Items_Sum_Equal_Sum_Of_Rest_Of_Array(int[] A)
+        int[] Two_Items_Sum_Equal_Sum_Of_Rest_Of_Array(int[] A)
         {
             int sum = A.Sum();
             if (sum % 2 != 0)
@@ -152,7 +163,6 @@ namespace DATA_STRUCTURES.ARRAYS
         }
 
 
-
         //  Q:  Given an array A[] of integers, write a program to find the maximum difference between any two elements such that
         //  the larger element appears after the smaller element.In other words. This is a different way of asking the 
         //  Maximum profit question 
@@ -160,7 +170,7 @@ namespace DATA_STRUCTURES.ARRAYS
         //  The maximum difference would involve finding the smallest and biggest values in the array making sure 
         //  that the smallest value is at an index less than the index of the biggest value.
 
-        static int[] Max_Difference_Of_Two_Items(int[] A)
+        int[] Max_Difference_Of_Two_Items(int[] A)
         {
             int p1 = 0;
             int highestIndex = 0;
@@ -200,7 +210,7 @@ namespace DATA_STRUCTURES.ARRAYS
         //  Solution:
         //  The maximum difference would involve finding the smallest and biggest values in the array making sure 
         //  that the smallest value is at an index less than the index of the biggest value.
-        static int[] Two_Items_Max_Difference2(int[] A)
+        int[] Two_Items_Max_Difference2(int[] A)
         {
             int minValue = 0;
             int maxDifference = A[1] - A[0];
@@ -226,10 +236,9 @@ namespace DATA_STRUCTURES.ARRAYS
         }
 
 
-
         //  Find equilibrium index of an array. The is the index that divides the array
         //  such that sun of all element on the right equal to sum of all element to the right
-        static int Get_Equilibrium_Index(int[] A)
+        int Get_Equilibrium_Index(int[] A)
         {
             int i = 0;
             int j = A.Length - 1;
@@ -254,8 +263,9 @@ namespace DATA_STRUCTURES.ARRAYS
             return j - 1;
         }
 
+
         //Finding sum of digits of a number until sum becomes single digit
-        static int Get_Sum_Of_Digits_Of_Num(int N)
+        int Get_Sum_Of_Digits_Of_Num(int N)
         {
             int sum = 0;
             while (N > 0)
@@ -272,8 +282,10 @@ namespace DATA_STRUCTURES.ARRAYS
             return sum;
         }
 
+
+
         //Compute sum of digits in all numbers from 1 to n
-        static int Sum_All_Numbers_From_1_To_N(int N)
+        int Sum_All_Numbers_From_1_To_N(int N)
         {
             if (N == 1)
             {
@@ -287,13 +299,37 @@ namespace DATA_STRUCTURES.ARRAYS
         //  that answer[i] is equal to the product of all the elements of nums except nums[i].
         //  You must write an algorithm that runs in O(n) time and without using the division operation.
         //  https://www.geeksforgeeks.org/a-product-array-puzzle/
-        static int[] B = new int[] { 1, 2, 3, 4 };
+        int[] B = new int[] { 1, 2, 3, 4 };
+
+
+        //  Given two strings str1 and str2 of size m and n, write a program to check whether the two given strings are anagrams
+        //  of each other or not. String str1 is an anagram of str2 if characters of str1 can be rearranged to form str2. In other
+        //  words, an anagram of a string is another string that contains same characters in different order
+
+        string name1 = "Melvin"; string name2 = "nivelM";
+        bool Are_Two_Strings_Ananograms(string str1, string str2)
+        {
+
+            HashSet<char> seenChars = new HashSet<char>(str1);
+
+            foreach (char item in str2)
+            {
+                if(seenChars.TryGetValue(item, out char val))
+                {
+                    seenChars.Remove(item);
+                }
+            }
+
+            return seenChars.Count() == 0;
+        }
+
+
         static int[] GetMutiples(int[] A)
         {
 
 
             return null;
         }
-        #endregion
+
     }
 }

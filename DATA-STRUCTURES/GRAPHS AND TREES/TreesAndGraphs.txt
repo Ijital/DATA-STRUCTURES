@@ -1,0 +1,15 @@
+﻿GRAPH
+A graph is a collection of Nodes. Graph data struture is used in many scenarios in
+real life. E,g Graphs are used to hold data about a social network for example where
+Everyone is a node with thier personal data but also everyone knows someone else.
+
+Node:
+A node is an abstract data type which holds two things.
+1: The data of the Node which can be of a given type; integer, string etc
+2: Pointers to other Nodes.
+
+Edge:
+When a node holds a pointer to another node they are said to have an edge between them
+i,e a path between the two nodes. Edges of a node can either be directed or undirected. 
+Directed edges mean that you can only traverse in one direction. If you're at node A and 
+there is a directed edge to node B, you can move from A -> B, but once you're at B you can't move B -> A

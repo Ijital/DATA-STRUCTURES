@@ -44,12 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARRAYS\Data.cs" />
+    <Compile Include="ARRAYS\Matrix.cs" />
     <Compile Include="ARRAYS\OneItem.cs" />
     <Compile Include="ARRAYS\SubArrays.cs" />
+    <Compile Include="ARRAYS\SubSequence.cs" />
+    <Compile Include="ARRAYS\SubSet.cs" />
     <Compile Include="ARRAYS\TwoItems.cs" />
+    <Compile Include="ARRAYS\TwoItemsAndIndexWidth.cs" />
     <Compile Include="DYNAMIC CODING\Dynamic-Coding.cs" />
     <Compile Include="KEY BASED STRUCTURES\MyDictionary.cs" />
     <Compile Include="KEY BASED STRUCTURES\MyHashKey.cs" />
+    <Compile Include="LINKED LIST\MyLinkedList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,6 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LINQ\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GRAPHS AND TREES\TreesAndGraphs.txt" />
+    <Content Include="LINKED LIST\LinkedList.txt" />
+    <Content Include="SORTING\SORTING.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
