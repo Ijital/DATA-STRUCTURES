@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DATA_STRUCTURES.DYNAMIC_CODING
 {
-    public class Dynamic_Coding
+    public class Dynamic_Coding  
     {
 
 
@@ -304,29 +304,8 @@ namespace DATA_STRUCTURES.DYNAMIC_CODING
 
         static Dictionary<int, int> inputs = new Dictionary<int, int>();
 
-        /// <summary>
+
         /// Given a number num, get the index of the number in a fibanaci series
-        /// </summary>
-        static private int GetFibaCursion(int num)
-        {
-            if (num < 2)
-            {
-                return num;
-            }
-
-            if (inputs.TryGetValue(num, out int val))
-            {
-                return val;
-            }
-
-            int result = GetFibaCursion(num - 1) + GetFibaCursion(num - 2);
-
-            inputs.Add(num, result);
-
-            return result;
-        }
-
-
         static int FibonnaciOf(int N)
         {
             if (N < 2)
