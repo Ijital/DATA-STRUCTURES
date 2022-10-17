@@ -4,48 +4,119 @@ real life. E,g Graphs are used to hold data about a social network for example w
 Everyone is a node with thier personal data but also everyone knows someone else.
 
 Node:
+=============
 A node is an abstract data type which holds two things.
 1: The data of the Node which can be of a given type; integer, string etc
 2: Pointers to other Nodes.
 
 Edge:
+=============
 When a node holds a pointer to another node they are said to have an edge between them
 i,e a path between the two nodes. Edges of a node can either be directed or undirected. 
 Directed edges mean that you can only traverse in one direction. If you're at node A and 
 there is a directed edge to node B, you can move from A -> B, but once you're at B you can't move B -> A
 
 Indegree;
+=============
 A node can have any number of edges entring it and can also have any number of 
 edges leaving the node. The number of edges entring a node is called the Node's 
 indegree
 
 OutDegree:
+==============
 The number of edges that leave a node is called outdegree
+A directed graph is one which 
+
+
+Directed vs Undirected Graph:
+==============================
+In a directed graph, each edge has only one direction while in an undirected 
+graph, each edge has direction both ways hence not directed
+A --> B directed  unidirectional
+A<-->B  undirected  bidirectional
+If the problem states that the graph is undirected, you will need to set both directions when building the 
+graph, as the input will usually not duplicate edges (it won't have [2, 0] and [0, 2] for example).
+
 
 Cyclic Graph:
+===============
 This is a graph that has a cycle. i,e a Graph with no end because the last node 
 added to the graph points to a previous node as its next
 
 Acyclic Graph:
+===============
 This is a graph that does not have a cycle
 
 Neightbour:
+==============
 Two nodes are said to be neighbours when they are connected by
 a single edge. 
 
+Representing a Graph in code;
+=============================
+Graphs can be presented in three formats
+1	Adjency List
+2	Array of Edges
+3	Adjaceny Matrix 
+
 Adjaceny List:
+===============
 In Graph Questions a graph will typically be given to you as an input. The form in
 which the graph will be given can adjacency list. This is done followong the steps;
 
-Step 1- represent the nodes in the graph using a number series ie  {1,2,3...n}. 
-Each number representing a particular node. Graph nodes are not sequencial so it dosent
-matter which node is numbered 1 or numbered 3 etc.Its only important that each number represents
-a given node in the graph
+Step 1- Consider each node in the Graph and for each node build an array of its neighbours
+Step 2- Put all the array of neighbours per Node into a bigger array effectively making the 
+the whole structure a jagged array.
+connect to. i.e has a directed edge to.  Adjancey List = [[2, 3], [3], []]
+In this example it means that node 1 connects to node 2 and also connects to node 3 																					
+Similarly node 2 only connects to node 3 and node 4 does not connect to any node
+This can be represented by a Jagged Array such that
 
-Step 2-  replace each numbered node in the series with an array of all nodes that the given node 
-connect to. e.g  Adjancey List = [[node2, node3], [node3], []]
 
-In this example it means that node1 connects to node2 and also connects to node3
+
+Adjency Matrix:
+===============
+In Adjancy Matrix we simple presents "2D" Arr[i,j] where i is Node and j is neighbour(s)
+Every item in the array Adjacent matrix can be represented by A Jagged Array, i.e each 
+index in the Jagged array represents a particular Node and the array at that index
+represents all other nodes that the index node connects to. This can be visualized as
+Follows 
+ 
+     1  2  3  4
+ --|------------
+ 1 | 0  1  1  0
+ 2 | 0  0  0  1
+ 3 | 0  1  1  0
+ 4 | 1  0  0  1
+
+ Each number in the top header represent a node on the left side of an edge
+ Each number in the side bar represent thesame node
+ hence the matrix above can be interpreted as follows;
+ -  Node 1 
+    has 0 edge connecting to itselft
+    has 0 edge connecting to node 2
+    has 1 edge connecting to node 4
+ 
+ -  Node 2
+    Has 1 edge connecting to Node 1
+    Has 0 edge connecting to itself 
+    Has 1 edge connecting to Node 3
+    Has 0 edge connecting to Node 4
+
+
+
+Array Of Edges:
+================
+This is the simpliest one. Its presents an array of all edeges in the graph
+Each edge is a pair of two numbers, the one on the left having a pointer 
+to the one on the right. ie [  [1,2], [2,3] , [3,1]    ]
+
+Edges Array can be represned by a "2D" Array Arr[i, j]
+where i = Node, and j = neightbour of i
+
+
+
+
 
 
 
