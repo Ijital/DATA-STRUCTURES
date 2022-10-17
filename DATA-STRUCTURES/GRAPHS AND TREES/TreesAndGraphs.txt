@@ -13,3 +13,38 @@ When a node holds a pointer to another node they are said to have an edge betwee
 i,e a path between the two nodes. Edges of a node can either be directed or undirected. 
 Directed edges mean that you can only traverse in one direction. If you're at node A and 
 there is a directed edge to node B, you can move from A -> B, but once you're at B you can't move B -> A
+
+Indegree;
+A node can have any number of edges entring it and can also have any number of 
+edges leaving the node. The number of edges entring a node is called the Node's 
+indegree
+
+OutDegree:
+The number of edges that leave a node is called outdegree
+
+Cyclic Graph:
+This is a graph that has a cycle. i,e a Graph with no end because the last node 
+added to the graph points to a previous node as its next
+
+Acyclic Graph:
+This is a graph that does not have a cycle
+
+Neightbour:
+Two nodes are said to be neighbours when they are connected by
+a single edge. 
+
+Adjaceny List:
+In Graph Questions a graph will typically be given to you as an input. An adjacency list
+is a list of all the Edgees leaving items in the collection. You product an adjaceny list 
+like so;
+Step1- Write out a set of the nodes in the Graph e.g [node1, node2, node3]
+
+Step2- In the array in step1, replace each node with an array of all nodes that the node 
+connect to. e.g 
+
+Adjancey List = [[node2, node3], [node3], []]
+
+In this example it means that node1 connects to node2 and also connects to node3
+
+
+

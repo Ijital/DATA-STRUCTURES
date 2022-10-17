@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -12,9 +13,11 @@ namespace DATA_STRUCTURES.ARRAYS
 
         public OneItem()
         {
-            var result = Get_First_Recurring_Value(Data.ArrayA);
+            //var result = Get_First_Recurring_Value(Data.ArrayA);
 
-            var result1 = Find_The_Item_Occuring_Once(nums);
+            //var result1 = Find_The_Item_Occuring_Once(nums);
+
+            var getSum = Get_Largest_SingleOcurring_Number(numsA);
 
             Debugger.Break();
         }
@@ -56,5 +59,71 @@ namespace DATA_STRUCTURES.ARRAYS
             return seenValues.ElementAt(0);
         }
 
+        //Given an integer array nums, return the largest integer that only occurs once. If no integer occurs once, return -1.
+        int[] numsA = new int[] { 5, 7, 3, 9, 4, 9, 8, 3, 1, 8, 7 };
+
+        int Get_Largest_SingleOcurring_Number(int[] nums)
+        {
+            if (nums.Length == 0)
+            {
+                return -1;
+            }
+            if (nums.Length == 1)
+            {
+                return nums[0];
+            }
+
+            if(nums.Length== 2)
+            {
+                return nums[0] == nums[1]? -1: Math.Max(nums[0], nums[1]);
+            }
+
+            SortedList<int, int> sortedNums = new SortedList<int, int>();
+            HashSet<int>deletedNums= new HashSet<int>();
+        
+            foreach (var item in nums)
+            {
+                if (sortedNums.TryGetValue(item, out int val) || deletedNums.TryGetValue(item, out int rVal))
+                {
+                    sortedNums.Remove(item);
+                    deletedNums.Add(item);
+                }
+                else
+                {
+                    sortedNums.Add(item, val);
+                }
+            }
+
+            if (sortedNums.Count == 0)
+            {
+                return -1;
+            }
+            return sortedNums.Last().Key;
+        }
+
+        //  Given an integer array arr, count how many elements x there are, such that x + 1 is also in arr.
+        //  If there are duplicates in arr, count them separately.
+
+        int[] arr = new int[] { 1, 3, 2, 3, 5, 0 };
+        int Get_Number_Of_Elements(int[] arr)
+        {
+            HashSet<int> plusOnes = new HashSet<int>();
+
+            int numOfPlusOnes = 0;
+
+            foreach (var item in arr)
+            {
+                if (plusOnes.TryGetValue(item + 1, out int val) || plusOnes.TryGetValue(item - 1, out int val2))
+                {
+                    numOfPlusOnes++;
+                }
+
+                plusOnes.Add(item);
+            }
+            return numOfPlusOnes;
+        }
+
+
     }
 }
+

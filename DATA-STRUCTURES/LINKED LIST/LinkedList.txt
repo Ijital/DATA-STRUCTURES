@@ -27,4 +27,11 @@ rest of the nodes in a linkedlist if the first node is nulled.
 
 
 Next: 
-The refers to the Node immediately occuring after a given Node, 
+The refers to the Node immediately occuring after a given Node.
+
+Loop:
+A loop in a linked list is a condition that occurs when the linked list does not have any end.
+i.e where the last element in the in the list is pointing to a previous element as its next.
+
+Cycle:
+The biggest loop is a circle, where the last element points to the first element as its next 

@@ -22,9 +22,12 @@ namespace DATA_STRUCTURES.LINKED_LIST
 
         public MelNode Last { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void AddLast(int data)
         {
-            MelNode node =  new MelNode(data);
+            MelNode node = new MelNode(data);
 
             if (Head == null)
             {
@@ -41,6 +44,9 @@ namespace DATA_STRUCTURES.LINKED_LIST
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void AddBefore(MelNode node, int data)
         {
             MelNode newNode = new MelNode(data);
@@ -49,28 +55,30 @@ namespace DATA_STRUCTURES.LINKED_LIST
 
             previous.Next = newNode;
 
-            newNode.Next = node; 
+            newNode.Next = node;
         }
 
 
+        /// <summary>
+        /// Gets the element in the middle of a linked list
+        /// </summary>
         public List<MelNode> Get_Middle_Node()
         {
             MelNode aheadNode = this.Head;
             MelNode behindNode = this.Head;
-        
 
-            while(aheadNode.Next!=null && aheadNode.Next.Next != null)
+            while (aheadNode.Next != null && aheadNode.Next.Next != null)
             {
                 aheadNode = aheadNode.Next.Next;
                 behindNode = behindNode.Next;
             }
 
-            if(aheadNode.Next != null)
+            if (aheadNode.Next != null)
             {
-                return new List<MelNode> { behindNode, behindNode.Next };
+                return new List<MelNode> {behindNode, behindNode.Next};
             }
 
-            return new List<MelNode> { behindNode};
+            return new List<MelNode> { behindNode };
         }
 
     }
