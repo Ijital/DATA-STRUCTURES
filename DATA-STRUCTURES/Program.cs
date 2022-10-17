@@ -35,7 +35,7 @@ namespace DATA_STRUCTURES
             //A.AddLast(19);
 
 
-            new MyStack();
+            //new MyStack();
 
             //new MySortedList();
 
@@ -50,7 +50,7 @@ namespace DATA_STRUCTURES
             //  new MyDictionary();
             //new MyLinkedList();
 
-            //new Matrix();
+            new Matrix();
 
             // new SubArrays();
 

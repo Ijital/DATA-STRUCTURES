@@ -70,7 +70,14 @@ the whole structure a jagged array.
 connect to. i.e has a directed edge to.  Adjancey List = [[2, 3], [3], []]
 In this example it means that node 1 connects to node 2 and also connects to node 3 																					
 Similarly node 2 only connects to node 3 and node 4 does not connect to any node
-This can be represented by a Jagged Array such that
+This can be represented by a Jagged Array such that.
+ 
+     1  2  3  4
+ --|------------
+ 1 | 0  1  1  0
+ 2 | 0  0  0  1
+ 3 | 0  1  1  0
+ 4 | 1  0  0  1
 
 
 
@@ -111,10 +118,19 @@ This is the simpliest one. Its presents an array of all edeges in the graph
 Each edge is a pair of two numbers, the one on the left having a pointer 
 to the one on the right. ie [  [1,2], [2,3] , [3,1]    ]
 
-Edges Array can be represned by a "2D" Array Arr[i, j]
-where i = Node, and j = neightbour of i
+Unlike Adjacent Matrix and Adjacent List, Edges Array can be represned by a "2D" Array Arr[i, j]
+where i = is a row represent a  Node and 
+J = is a column represent a neightboruing node in the matrix
+The next format is an adjacency matrix. Once again, the nodes will be numbered from 0 to n - 1.
+You will be given a 2D matrix of size n x n, let's call it graph. If graph[i][j] == 1, that means there
+is an outgoing edge from node i to node j. For example:
 
-
+ 0  1  1  0
+ 0  0  0  1
+ 0  1  1  0
+ 1  0  0  1
+ 
+ In the example above, each row represents a different Node in the graph
 
 
 
