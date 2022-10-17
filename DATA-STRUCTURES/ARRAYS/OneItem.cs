@@ -17,7 +17,7 @@ namespace DATA_STRUCTURES.ARRAYS
 
             //var result1 = Find_The_Item_Occuring_Once(nums);
 
-            var getSum = Get_Largest_SingleOcurring_Number(numsA);
+            var getSum = Get_Number_Of_Elements(arr);
 
             Debugger.Break();
         }
@@ -101,28 +101,37 @@ namespace DATA_STRUCTURES.ARRAYS
             return sortedNums.Last().Key;
         }
 
+
         //  Given an integer array arr, count how many elements x there are, such that x + 1 is also in arr.
         //  If there are duplicates in arr, count them separately.
 
-        int[] arr = new int[] { 1, 3, 2, 3, 5, 0 };
+        int[] arr = new int[] { 1, 1, 2, 2 };
         int Get_Number_Of_Elements(int[] arr)
         {
-            HashSet<int> plusOnes = new HashSet<int>();
-
-            int numOfPlusOnes = 0;
 
             foreach (var item in arr)
             {
-                if (plusOnes.TryGetValue(item + 1, out int val) || plusOnes.TryGetValue(item - 1, out int val2))
-                {
-                    numOfPlusOnes++;
-                }
 
-                plusOnes.Add(item);
             }
-            return numOfPlusOnes;
+     
+      
+            return 0;
         }
 
+        public bool CheckIfPangram(string sentence)
+        {
+            HashSet<char> uniqChars = new HashSet<char>(); 
+
+            foreach (var item in sentence)
+            {
+                if(Char.IsLetter(item))
+                {
+                    uniqChars.Add(item);
+                }
+            }
+            return uniqChars.Count ==26;
+
+        }
 
     }
 }
