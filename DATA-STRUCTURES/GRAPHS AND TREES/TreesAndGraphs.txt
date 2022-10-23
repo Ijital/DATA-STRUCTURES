@@ -1,56 +1,32 @@
 ﻿GRAPH
-A graph is a collection of Nodes. Graph data struture is used in many scenarios in
+================
+A graph is a collection of linked Nodes. Unlike a linkedList, a Graph is literally a linked list 
+that is not linear but can have multiple branches. Graph is used in many scenarios in
 real life. E,g Graphs are used to hold data about a social network for example where
-Everyone is a node with thier personal data but also everyone knows someone else.
+Every node holds details of a person but also hold pointers to other person nodes
+they know.
 
-Node:
-=============
+Node / Vertex:
+================
 A node is an abstract data type which holds two things.
 1: The data of the Node which can be of a given type; integer, string etc
 2: Pointers to other Nodes.
 
 Edge:
-=============
+=================
 When a node holds a pointer to another node they are said to have an edge between them
-i,e a path between the two nodes. Edges of a node can either be directed or undirected. 
-Directed edges mean that you can only traverse in one direction. If you're at node A and 
-there is a directed edge to node B, you can move from A -> B, but once you're at B you can't move B -> A
-
-Indegree;
-=============
-A node can have any number of edges entring it and can also have any number of 
-edges leaving the node. The number of edges entring a node is called the Node's 
-indegree
-
-OutDegree:
-==============
-The number of edges that leave a node is called outdegree
-A directed graph is one which 
-
+i,e a path between the two nodes. An edge between two nodes can either be directed or undirected. 
 
 Directed vs Undirected Graph:
 ==============================
 In a directed graph, each edge has only one direction while in an undirected 
 graph, each edge has direction both ways hence not directed
-A --> B directed  unidirectional
+A --> B directed  unidirectional, this is represented  as array of two items [A,B]
+In directed graph representation [A,B] is not thesame as [B,A]
+
 A<-->B  undirected  bidirectional
 If the problem states that the graph is undirected, you will need to set both directions when building the 
-graph, as the input will usually not duplicate edges (it won't have [2, 0] and [0, 2] for example).
-
-
-Cyclic Graph:
-===============
-This is a graph that has a cycle. i,e a Graph with no end because the last node 
-added to the graph points to a previous node as its next
-
-Acyclic Graph:
-===============
-This is a graph that does not have a cycle
-
-Neightbour:
-==============
-Two nodes are said to be neighbours when they are connected by
-a single edge. 
+graph, as the input will usually not duplicate edges i.e it won't have [2, 0] and [0, 2] for example).
 
 Representing a Graph in code;
 =============================
@@ -59,56 +35,60 @@ Graphs can be presented in three formats
 2	Array of Edges
 3	Adjaceny Matrix 
 
-Adjaceny List:
-===============
-In Graph Questions a graph will typically be given to you as an input. The form in
-which the graph will be given can adjacency list. This is done followong the steps;
-
-Step 1- Consider each node in the Graph and for each node build an array of its neighbours
-Step 2- Put all the array of neighbours per Node into a bigger array effectively making the 
-the whole structure a jagged array.
-connect to. i.e has a directed edge to.  Adjancey List = [[2, 3], [3], []]
-In this example it means that node 1 connects to node 2 and also connects to node 3 																					
-Similarly node 2 only connects to node 3 and node 4 does not connect to any node
-This can be represented by a Jagged Array such that.
- 
-     1  2  3  4
- --|------------
- 1 | 0  1  1  0
- 2 | 0  0  0  1
- 3 | 0  1  1  0
- 4 | 1  0  0  1
-
-
-
 Adjency Matrix:
 ===============
-In Adjancy Matrix we simple presents "2D" Arr[i,j] where i is Node and j is neighbour(s)
-Every item in the array Adjacent matrix can be represented by A Jagged Array, i.e each 
-index in the Jagged array represents a particular Node and the array at that index
-represents all other nodes that the index node connects to. This can be visualized as
-Follows 
- 
-     1  2  3  4
- --|------------
- 1 | 0  1  1  0
- 2 | 0  0  0  1
- 3 | 0  1  1  0
- 4 | 1  0  0  1
+Adjancy Matrix present a graph in a "2D" array A[i,j] formate, where i is a
+Node in the graph and j is its possible neightbour. Essentially a "2D" representation of 
+a matrix is an array of all possible permutions of two items taken from the nodes. So if 
+we have a graph of three nodes A, B , C then the permutationa will as follows
+AB, BA, AC, CA, BC, CB. We present these Node using integers like so
+A = 0, B = 1, C = 2. 
+We then represent the matrix like so;
 
- Each number in the top header represent a node on the left side of an edge
- Each number in the side bar represent thesame node
- hence the matrix above can be interpreted as follows;
- -  Node 1 
-    has 0 edge connecting to itselft
-    has 0 edge connecting to node 2
-    has 1 edge connecting to node 4
- 
- -  Node 2
-    Has 1 edge connecting to Node 1
-    Has 0 edge connecting to itself 
-    Has 1 edge connecting to Node 3
-    Has 0 edge connecting to Node 4
+A[0,0] = 0; Indicating A is not a neighbour to itself
+A[0,1] = 1  Indicating A and B are neighbours, they have an edge between them
+
+This can be visualised like so;
+
+     0  1  2 
+ --|---------
+ 0 | 0  1  1
+ 1 | 1  0  0
+ 2 | 0  1  0
+
+This matrix will be interpreted as followings
+
+A[0,0] = 0
+A[0,1] = 1
+A[0,2] = 0 First row shows directed edges from node 0 to others i.e [0,0] [0,1] [0,2]
+
+A[1,0] = 1
+A[1,1] = 0
+A[1,2] = 1 Second row shows directed edges from node 1 to others
+
+A[2,0] = 1
+A[2,1] = 0
+A[2,2] = 0  Second row shows directed edges from node 2 to others
+
+
+
+Adjaceny List:
+===============
+Adjaceny List is simply a Jagged array. i,e an array of arrays int[][]
+The array at index 0 is an array that holds all neighbours of Node 0
+The array at index 0 is an array of all neighbours of Node 1
+
+So the Adjaceny matrix reprented above can be represented here like so;
+
+A[0]= new int []{1}      Node 0 has directed edge to only node 1
+A[1]= new int []{0, 2}   Node 1 has directed edges to node 0 and node 2
+A[2]= new int []{0 }     Node 2 has directed edges to only node 0
+
+This option only shows a list of neightbours unlike the Adjaceny matrix where
+every possible permutation is defined and 1 or 0 is used to indicate if each 
+permutation are neighbours. 
+
+
 
 
 
@@ -132,6 +112,31 @@ is an outgoing edge from node i to node j. For example:
  
  In the example above, each row represents a different Node in the graph
 
+ Indegree;
+=============
+A node can have any number of edges entring it and can also have any number of 
+edges leaving the node. The number of edges entring a node is called the Node's 
+indegree
+
+OutDegree:
+==============
+The number of edges that leave a node is called outdegree
+A directed graph is one which 
+
+
+Cyclic Graph:
+===============
+This is a graph that has a cycle. i,e a Graph with no end because the last node 
+added to the graph points to a previous node as its next
+
+Acyclic Graph:
+===============
+This is a graph that does not have a cycle
+
+Neightbour:
+==============
+Two nodes are said to be neighbours when they are connected by
+a single edge. 
 
 
 

@@ -12,7 +12,6 @@ namespace DATA_STRUCTURES.ARRAYS
     ///     A element in this this collection can be accessed like so. A[0][1]
 
     ///     A Matrix on the other hand is an collection of items that that progress in a 
-    ///     
 
 
     public class Matrix
@@ -23,19 +22,18 @@ namespace DATA_STRUCTURES.ARRAYS
         //  13 14  15  16
         int[,] matrix2 = new int[4, 4] { { 1, 2, 3, 4 }, { 5, 1, 1, 8 }, { 9, 1, 1, 12 }, { 13, 14, 15, 16 } };
 
-        int[,] matrix = new int[4, 4] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+        int[,] matrix = new int[2, 3] { { 1, 2, 3}, { 5, 6, 7 }};
 
         public Matrix()
         {
 
-            Print_Matrix_Items(matrix2);
+            // Print_Matrix_Items(matrix2);
 
-
-
-            // Print_Matrix_Spirally(matrix);
+            Print_Matrix_Spirally(matrix);
 
             Debugger.Break();
         }
+
 
 
         // Print Every item in a matrix
