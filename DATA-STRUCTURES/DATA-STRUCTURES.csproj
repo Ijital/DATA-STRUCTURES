@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,6 +51,7 @@
     <Compile Include="ARRAYS\SubArrays.cs" />
     <Compile Include="ARRAYS\SubSequence.cs" />
     <Compile Include="ARRAYS\SubSet.cs" />
+    <Compile Include="ARRAYS\ThreeItems.cs" />
     <Compile Include="ARRAYS\TwoItems.cs" />
     <Compile Include="ARRAYS\TwoItemsAndIndexWidth.cs" />
     <Compile Include="DYNAMIC CODING\Dynamic-Coding.cs" />
@@ -70,7 +73,6 @@
     <Folder Include="LINQ\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ARRAYS\Matrices.txt" />
     <Content Include="GRAPHS AND TREES\TreesAndGraphs.txt" />
     <Content Include="LINKED LIST\LinkedList.txt" />
     <Content Include="SORTING\SORTING.txt" />

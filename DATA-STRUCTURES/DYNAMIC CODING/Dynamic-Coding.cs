@@ -8,8 +8,6 @@ namespace DATA_STRUCTURES.DYNAMIC_CODING
 {
     public class Dynamic_Coding  
     {
-
-
         //  Given a string, compute recursively the number of times lowercase "hi" appears in the string, however do not count "hi" that have an 'x' immedately before them.
         //  countHi2("ahixhi") → 1
         //  countHi2("ahibhi") → 2
@@ -84,8 +82,6 @@ namespace DATA_STRUCTURES.DYNAMIC_CODING
             }
             return rows + triangle(rows - 1);
         }
-
-
 
         //  Given a non-negative int n, compute recursively(no loops) the count of the occurrences of 8 as a digit, except that an 8 with another 8
         //  immediately to its left counts double, so 8818 yields 4. Note that mod(%) by 10 yields the rightmost digit(126 % 10 is 6),

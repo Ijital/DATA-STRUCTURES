@@ -13,9 +13,9 @@ namespace DATA_STRUCTURES
     {
         static void Main(string[] args)
         {
-          
 
-          //  Debugger.Break();
+
+            //  Debugger.Break();
 
             //MelLinked A = new MelLinked();
 
@@ -53,7 +53,9 @@ namespace DATA_STRUCTURES
             //  new MyDictionary();
             //new MyLinkedList();
 
-             new Matrix();
+            // new Matrix();
+
+            new ThreeItems();
 
             // new SubArrays();
 
